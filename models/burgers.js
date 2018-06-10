@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Burgers = sequelize.define('Burgers', {
+  var burgers = sequelize.define('burgers', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -15,9 +15,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-  }, {});
-  Burgers.associate = function(models) {
+  }, {
+    timestamps: false
+  });
+  burgers.associate = function(models) {
     // associations can be defined here
   };
-  return Burgers;
+  return burgers;
 };
