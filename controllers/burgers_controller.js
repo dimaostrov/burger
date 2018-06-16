@@ -1,7 +1,9 @@
 const db = require("../models");
 
 exports.getAllBurgers = (req, res) => {
-  db.burgers.findAll({}).then(x => res.json(x));
+  db.burgers.findAll({
+    attributes: ['id','burger_name', 'devoured']
+  }).then(x => res.json(x));
 }
 
 exports.postBurger = (req, res) => {
