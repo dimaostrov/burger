@@ -7,3 +7,8 @@ exports.getAllBurgers = (req, res) => {
 exports.postBurger = (req, res) => {
   db.burgers.create(req.body).then(x => res.json(x));
 }
+
+exports.devourBurger = (req,res) => {
+  db.burgers.update({devoured: true}, {where: {id: req.params.id}})
+    .then(x=>res.json(x));
+}
